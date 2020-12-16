@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% block title %}{{ block.super }} | Create New Loan{% endblock title %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="border p-4 mb-5">
+    <legend class="border-bottom pb-1 mb-3">New Loan </legend>
+    <form method="POST" enctype="multipart/form-data" class="my-ajax-form" >
+        {% csrf_token %}
+        {{form|crispy}}
+        <input class="btn btn-secondary mt-4" type="submit" value="Add New Loan">
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+{% block title %}{{ block.super }} | LogOut{% endblock title %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="border p-4 mb-5">
+    <legend class="border-bottom pb-1 mb-3">You are now loged out ......</legend>
+    <h5><a href="{% url 'login' %}">Log In again</a></h5>
+
+</div>
+{% endblock content %}

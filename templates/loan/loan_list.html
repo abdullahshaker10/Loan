@@ -1,0 +1,41 @@
+{% extends 'main.html' %} {% block title %}{{ block.super }} | Create New
+Loan{%endblock title %} {% block content %}
+
+<div
+  class="tab-pane"
+  id="v-pills-soldorders"
+  role="tabpanel"
+  aria-labelledby="v-pills-soldorders-tab"
+>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Borrower</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Period</th>
+        <th scope="col">State</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for loan in loans %}
+      <tr class="sell">
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ loan.borrower }}</td>
+        <td>{{ loan.amount }}</td>
+        <td>{{ loan.period }}</td>
+        <td>{{ loan.state }}</td>
+        <td>
+          <a
+            class="btn btn-primary confirmOnBuyer"
+            href="{% url 'offer-create' loan.id %}"
+            >Make Offer</a
+          >
+        </td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
