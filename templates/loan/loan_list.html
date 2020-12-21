@@ -27,12 +27,14 @@ Loan{%endblock title %} {% block content %}
         <td>{{ loan.period }}</td>
         <td>{{ loan.state }}</td>
         <td>
+        {% if loan.state != "Completed"%}
           <a
             class="btn btn-primary confirmOnBuyer"
             href="{% url 'offer-create' loan.id %}"
             >Make Offer</a
           >
         </td>
+        {% endif %}
         {% endfor %}
       </tr>
     </tbody>
